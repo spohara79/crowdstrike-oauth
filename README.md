@@ -15,6 +15,7 @@ List Devices
 ```python
     device_list = cs.list_devices_scroll()
     print(len(device_list))
+```
 
 Upload IOCs
 ```python
