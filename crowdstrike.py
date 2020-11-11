@@ -121,14 +121,11 @@ class CrowdStrike:
             yield chunk_list[i:i+n]
 
     def get_devices(self, devices):
-        print(len(devices))
         chunks = 100
         device_list = []
         for device_chunk in self.__chunk__(devices, chunks):
-            print("chunk len: {0}".format(len(device_chunk)))
             params = {'ids': device_chunk}
             resp = self.make_request(self.get_devices_url, 'GET', params=params)
-            print("response: {0}".format(len(resp['resources'])))
             device_list += resp['resources']
         return device_list
 
